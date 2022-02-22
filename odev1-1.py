@@ -28,13 +28,13 @@ while True:
             for id , lm in enumerate(handLms.landmark):
                 h, w, c = img.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
-                # print(id, cx, cy)
+                
                 lmList.append([id, cx, cy])
             if lmList[8][2]<=lmList[7][2] and lmList[4][2]<= lmList[3][2] and lmList[12][2]<= lmList[11][2] and lmList[16][2]<= lmList[15][2] and lmList[20][2]<= lmList[19][2]:
                 img_name = "opencv_frame_{}.png".format(img_counter)
                 cv2.imwrite(img_name, img)
                 print("{} written!".format(img_name))
-            img_counter += 1
+                img_counter += 1
             
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
     
